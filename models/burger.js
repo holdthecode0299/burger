@@ -1,19 +1,26 @@
-var orm = require("../orm");
+// import orm 
+var orm = require("../config/orm");
 
     var burgers = {
 
-        selectAll: function(cb){
-            orm.selectAll("burgers",)
+        all: function(cb){
+            orm.selectAll("burgers", function(res){
+                cb(res);
+            });
             },
 
-        insertOne: function(newEntry, cb){
-            orm.insertOne("burgers", );
+        insert: function(newEntry, cb){
+            orm.insertOne("burgers", function(res){
+                cb(res);
+            });
             },
 
-        updateOne: function(cb){
-            orm.updateOne("burgers",)
+        update: function(cb){
+            orm.updateOne("burgers",function(res){
+                cb(res);
+            });
             },
 
     };
-
+// export database for controller
 module.exports = burgers; 
