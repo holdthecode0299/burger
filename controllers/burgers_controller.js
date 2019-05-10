@@ -4,7 +4,7 @@ var express = require("express");
 var router = express.router();
 
 // import burger.js file database
-var burger = require("./burger.js");
+var burger = require("../models/burger");
 
 // Routes 
 router.get("/", function (req, res){
@@ -19,10 +19,21 @@ router.get("/", function (req, res){
 
 router.post("/api/burger", function(req,res){
     burger.create([
-        ""
-    ]);
+        "buger_name", "devoured"
+    ], [
+        req.body.burger_name, req.body.devoured
+    ], function(result){
+        res.json({id: result.insertId});
+    });
 });
 
+router.put("api/burger:id", function(req, res){
+  
+
+    burger.update({
+
+    })
+});
 
 
 

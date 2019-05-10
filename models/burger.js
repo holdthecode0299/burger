@@ -9,14 +9,14 @@ var orm = require("../config/orm");
             });
             },
 
-        insert: function(newEntry, cb){
-            orm.insertOne("burgers", function(res){
+        insert: function(table, burgerName, devoured, cb){
+            orm.insertOne("burgers", table, burgerName, devoured, cb, function(res){
                 cb(res);
             });
             },
 
-        update: function(cb){
-            orm.updateOne("burgers",function(res){
+        update: function(table, id, cb){
+            orm.updateOne("burgers", table, id, cb, function(res){
                 cb(res);
             });
             },
