@@ -1,5 +1,31 @@
-<h1>Eat-Da-Burger</h1>
+<div class="container">
+    <div id="img" src="https://media.giphy.com/media/ToMjGplHPoYqSg7oACc/giphy.gif" width="300" height="300"></div>
+    <h1>Eat-Da-Burger</h1>
 
-<ul>
-    {{#each burger}}
-</ul>
+    <div class="col-md-6 col-left">
+        <table>
+            {{#each burgers}}
+                {{#unless devoured}}
+                    {{> burgers/burger-block}}
+                {{/unless}}
+            {{/each}}
+        </table>
+    </div>
+
+    <div class="col-md-6 col-right">
+        {{#each burgers}}
+            {{#if devoured}}
+                <div>{{id}}. {{burger_name}}</div>
+            {{/if}}
+        {{/each}}        
+    </div>          
+
+    <form class="form">
+        <div class="burger-form">
+            <label for="name"></label>
+            <textarea id="name" name="burger-name" rows="2" cols="40" placeholder="Enter a burger you want to eat. Click the Submit button."></textarea>
+        </div>
+        <button type="submit">Add Burger</button>
+    </form>   
+
+</div>
