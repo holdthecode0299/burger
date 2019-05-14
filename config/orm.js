@@ -7,8 +7,8 @@ var orm = {
         connection.query(queryString, function(err,result){
             console.log(result)
             if(err) {
-
-            } throw err;
+                throw err;
+            } 
             cb(result);
         });
     },
@@ -17,8 +17,8 @@ var orm = {
         var queryString = "INSERT INTO ?? (??) VALUES (?)"
         connection.query(queryString, [table, burgerName, devoured, cb], function(err, result){
             if(err) {
-
-            } throw err;
+                throw err;
+            }
             cb(result)
         });
     },
@@ -27,8 +27,8 @@ var orm = {
         var queryString ="UPDATE ?? SET devoured = 1 WHERE id = ?"
         connection.query(queryString,[table, id, cb], function(err, result){
             if(err){
-                
-            } throw err;
+                throw err;
+            }
             cb(data)
         });
     },

@@ -11,7 +11,7 @@ router.get("/", function (req, res){
     console.log("in here")
     burger.all(function(data){
         var hbsObject = {
-            burgers:result
+            burgers:data
         };
         console.log(hbsObject);
         res.render("index", hbsObject);
