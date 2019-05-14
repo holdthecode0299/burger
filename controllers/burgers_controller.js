@@ -7,23 +7,20 @@ var router = express.Router();
 var burger = require("../models/burger.js");
 
 // Routes 
-router.get("/", function (req, res){
-    console.log("in here")
-    burger.all(function(data){
+router.get("/", function (req, res) {
+    burger.all(function(data) {
         var hbsObject = {
-            burgers:data
+            burgers: data
         };
-        console.log(hbsObject);
+       
         res.render("index", hbsObject);
     });
 });
 
 router.post("/api/burger", function(req, res){
-    burger.create([
-        "buger_name", "devoured"
-    ], [
-        req.body.burger_name, req.body.devoured
-    ], function(result){
+    burger.create(
+    
+    [req.body.burger_name], function(result) {
         res.json({id: result.insertId});
     });
 });
@@ -31,12 +28,10 @@ router.post("/api/burger", function(req, res){
 router.put("api/burger:id", function(req, res){
     var condition = "id = " + req.params.id;
 
-    console.log("condition", condition);
-
-    burger.update({
-        devoured: req.body.devoured
-    }, condition, function(result){
-        if (result.changedRows == 0){
+    burger.update(
+       req.body, 
+    condition, function(result) {
+        if (result.changedRows == 0) {
             // if no change 404 error page doesnt exist
             return res.status(404).end();
         } else {

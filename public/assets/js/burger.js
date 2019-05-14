@@ -1,54 +1,39 @@
-$(function() {
-    $(".devour").on("click", function(event) {
-        var id = $(this).data("id");
+$(document).ready(function() {
 
+    $(".submit").on("click", createBurger);
+    $(".devoured").on("click", updateBurger); 
+
+    function createBurger(event) {
+        event.preventDefault();
+
+        var name = $("submit").val().trim();
+       
         var newBurger = {
-            devoured: true
-        };
-
-        // Send PUT request.
-        $.ajax("/api/burgers/" + id, {
-            type: "PUT",
-            data: newBurger
-        }).then(function() {
-        
-            // Reload the page to get the updated list
-            location.reload();
-        });
-    });  
-
-    $(".form").on("submit", function(event) {
-
-        var name = $("[name=burger-name]").val().trim();
-
-        if(name !== "") {
-            var newBurger = {
-                name: name
+            name: name + "Burger"
             };
 
-            // Send the POST request.
-            $.ajax("/api/burgers", {
-                type: "POST",
-                data: newBurger
-            }).then(function() {
-                
-                // Reload the page to get the updated list
+            $.post("api/burgers", newBurger, function(result) {
                 location.reload();
             });
-        }
-        else {
-            $("[name=burger-name]").val("");
-        }
-    });
+    }
 
-    $(".delete-sleep").on("click", function(event) {
-        var id = $(this).data("id");
+    function updateBurger(event) {
+        event.preventDefault();
+        var id =$(this).data("burger-name");
 
-        $.ajax("/api/burgers/" + id, {
-            type: "DELETE"
-        }).then(function() {
-            // Reload the page to get the updated list
-            location.reload();
-        });
-    });  
+            $.ajax("api/burgers/" + id, {
+                type: "PUT", 
+                data: {
+                    devoured: 1 
+                }
+            }).then(function () {
+                location.reload();
+            })
+    }
+
+
+
+  
 });
+
+    

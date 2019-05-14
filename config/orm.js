@@ -2,10 +2,9 @@ var connection = require("./connection");
 
 var orm = {
     selectAll: function(tableInput, cb){
-        console.log("in orm")
         var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function(err,result){
-            console.log(result)
+            
             if(err) {
                 throw err;
             } 
