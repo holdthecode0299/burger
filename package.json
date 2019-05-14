@@ -1,0 +1,29 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "Eat-The-Burger",
+  "main": "server.js",
+  "dependencies": {
+    "express-handlebars": "^3.0.2",
+    "express": "^4.16.4",
+    "mysql2": "^1.6.5",
+    "mysql": "^2.17.1",
+    "package-json": "^6.3.0",
+    "sequelize": "^5.8.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holdthecode0299/burger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/holdthecode0299/burger/issues"
+  },
+  "homepage": "https://github.com/holdthecode0299/burger#readme"
+}
