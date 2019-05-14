@@ -8,6 +8,7 @@ var burger = require("../models/burger.js");
 
 // Routes 
 router.get("/", function (req, res){
+    console.log("in here")
     burger.all(function(data){
         var hbsObject = {
             burgers:result

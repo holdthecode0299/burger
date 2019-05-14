@@ -4,7 +4,9 @@ var orm = require("../config/orm");
     var burgers = {
 
         all: function(cb){
+            console.log("in burger")
             orm.selectAll("burgers", function(res){
+                console.log(res)
                 cb(res);
             });
             },

@@ -2,7 +2,7 @@ var mysql = require("mysql");
 
 var connection = mysql.createConnection({
     host: "localhost",
-    port: 8080,
+    port: 8889,
     user: "root",
     password: "root",
     database: "burgers_db"
@@ -18,14 +18,5 @@ connection.connect(function(err) {
     console.log('Connected as id ' + connection.threadId);
 });
 
-// connection.query('SELECT * FROM burgers', function (error, results, fields) {
-//     if (error)
-//         throw error;
 
-//     results.forEach(result => {
-//         console.log(result);
-//     });
-// });
-
-// Export connection 
 module.exports = connection; 
